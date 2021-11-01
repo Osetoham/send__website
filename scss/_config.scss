@@ -1,0 +1,17 @@
+$primary-color: linear-gradient(360deg, #DEE8F2 -80.63%, rgba(249, 250, 251, 0) 100%);
+$font-color: #2D2D55;
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-decoration: none;
+    outline: none;
+    border: 0;
+  }
+
+  @mixin container {
+    max-width: 1170px;
+    margin: 0 auto;
+  }
