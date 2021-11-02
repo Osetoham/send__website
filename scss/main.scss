@@ -5,6 +5,11 @@
     margin-top: 48px;
     .app-container {
       @include container;
+      @include mobile {
+        max-width: 342px;
+        margin-left: auto;
+        margin-right: auto;
+      }
       .app-wrapper {
         .menu-wrapper {
           display: flex;
@@ -18,6 +23,9 @@
                   background: #0747a6;
                   border-radius: 30px;
                   padding: 12.5px 33px;
+                  @include mobile {
+                    padding: 12.5px 23px;
+                  }
                   a {
                     font-family: Gilroy;
                     font-weight: 600;
@@ -42,10 +50,21 @@
     background-size: cover;
     position: relative;
     padding-bottom: 366px;
+    @include mobile {
+      background-image: url(/assets/svg/map.svg);
+      background-position: top;
+      background-repeat: no-repeat;
+      background-size: unset;
+      padding-bottom: 380px;
+    }
     .app-container {
       @include container;
       .app-wrapper {
         padding: 0 117px;
+        @include mobile {
+          @include mobileContainer;
+          padding: 0;
+        }
         .hero-head {
           font-family: Gilroy;
           font-size: 56px;
@@ -54,15 +73,25 @@
           text-align: center;
           padding-top: 51px;
           padding-bottom: 24px;
+          @include mobile {
+            font-size: 24px;
+            line-height: 32px;
+            padding-bottom: 32px;
+          }
         }
         .hero-text {
           text-align: center;
           color: $font-color;
           font-size: 18px;
           line-height: 32px;
-          padding: 0 205px;
+          max-width: 586px;
+          margin: 0 auto;
           font-family: inter;
           font-weight: 300;
+          @include mobile {
+            max-width: 350px;
+            font-size: 16px;
+          }
         }
       }
       .hero-img {
@@ -70,23 +99,42 @@
         margin: 0 54px;
         position: absolute;
         padding-top: 55px;
+        @include mobile {
+          display: none;
+        }
       }
     }
   }
 }
 
 .how-it-works__section {
-  margin-top: 338px;
+  margin-top: 298px;
   padding-bottom: 270px;
   background: $primary-color;
   position: relative;
+  @include mobile {
+    margin-top: 338px;
+    background: none;
+    padding-bottom: 130px;
+  }
   .app-container {
     @include container;
+    @include mobile {
+      @include mobileContainer;
+      padding: 0;
+    }
     .how-it-works-flex {
       display: flex;
+      @include mobile {
+        flex-direction: column;
+      }
       &__left {
         margin-right: 72px;
         max-width: 328px;
+        margin: 0 auto;
+        @include mobile {
+          max-width: 350px;
+        }
         &-head {
           color: $font-color;
           font-family: Gilroy;
@@ -104,6 +152,9 @@
       }
       &__right {
         display: flex;
+        @include mobile {
+          flex-direction: column;
+        }
         .icon {
           margin-bottom: 28px;
         }
@@ -114,15 +165,27 @@
           border-radius: 10px;
           margin-right: 56px;
           max-width: 357px;
+          @include mobile {
+            margin-right: 0;
+            margin-top: 32px;
+            padding-left: 32px;
+            padding-right: 25px;
+          }
 
           &:last-child {
             margin-right: 0;
+            @include mobile {
+              margin-top: 48px;
+            }
           }
           &-head {
             font-size: 24px;
             line-height: 30px;
             color: $font-color;
             font-family: Gilroy;
+          }
+          pre {
+            font-weight: bold;
           }
           &-text {
             font-family: Inter;
@@ -138,8 +201,17 @@
         display: flex;
         margin-top: 56px;
         position: absolute;
+        @include mobile {
+          position: unset;
+        }
+        @include mobile {
+          flex-direction: column;
+        }
         .card-wrapper {
           display: flex;
+          @include mobile {
+            flex-direction: column;
+          }
 
           .card {
             max-width: 357px;
@@ -151,8 +223,17 @@
             box-shadow: 0px 15px 50px rgba(21, 37, 72, 0.08);
             border-radius: 10px;
             margin-right: 43px;
+            @include mobile {
+              margin-right: 0;
+              padding-left: 32px;
+              padding-right: 25px;
+            }
+
             &:last-child {
               margin-right: 0;
+              @include mobile {
+                margin-top: 48px;
+              }
             }
             &-head {
               font-size: 24px;
@@ -172,6 +253,9 @@
         }
         .pattern {
           margin-left: 183px;
+          @include mobile {
+            display: none;
+          }
         }
       }
     }
@@ -186,13 +270,26 @@
   margin-top: 331px;
   margin-bottom: 204px;
   position: relative;
+  @include mobile {
+    margin-top: 0;
+    margin-bottom: 172px;
+  }
   .app-container {
     @include container;
     .app-wrapper {
       padding: 0 65px;
+      @include mobile {
+        @include mobileContainer;
+        padding: 0;
+      }
       .who-wrapper-flex {
         padding: 80px 0;
         display: flex;
+        @include mobile {
+          flex-direction: column;
+          padding-bottom: 0;
+        }
+
         &__left {
           &-head {
             font-family: Gilroy;
@@ -200,11 +297,25 @@
             line-height: 40px;
             color: #ffffff;
             margin-bottom: 32px;
+            @include mobile {
+              margin-bottom: 24px;
+            }
           }
           .inner-flex {
             display: flex;
+            @include mobile {
+              flex-direction: column;
+            }
+
             &__ {
               margin-right: 82px;
+              @include mobile {
+                padding-bottom: 32px;
+                margin-right: 0ex;
+                &:last-child {
+                  padding-bottom: 0;
+                }
+              }
               &:last-child {
                 margin-right: 0;
               }
@@ -212,6 +323,7 @@
                 display: flex;
                 align-items: center;
                 padding-bottom: 32px;
+
                 &:last-child {
                   padding-bottom: 0;
                 }
@@ -240,36 +352,25 @@
             width: fit-content;
             padding: 11.5px 32px;
             margin-top: 48px;
+            @include mobile {
+              margin-top: 35px;
+            }
           }
         }
         &__right {
           margin-left: 142px;
-          .image-flex {
-            display: flex;
-            margin-bottom: 24px;
-            .img1 {
-              width: 200px;
-              height: 257px;
-              margin-right: 24px;
-              margin-top: -31px;
-            }
-            .img2 {
-              width: 262px;
-              margin-top: -130px;
-            }
+          @include mobile {
+            margin-left: 0;
           }
-          .image-flex2 {
-            display: flex;
-            margin-left: 68px;
+          .group-img {
+            width: 486px;
             position: absolute;
-            .img3 {
-              width: 166px;
-              height: 166px;
-              margin-right: 24px;
-            }
-            .img4 {
-              width: 200px;
-              height: 200px;
+            top: -49px;
+            bottom: 0;
+            @include mobile {
+              position: unset;
+              width: 100%;
+              transform: translateY(49px);
             }
           }
         }
@@ -289,12 +390,22 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin-bottom: 130px;
+  @include mobile {
+    background-image: url(/assets/svg/bg3.svg);
+    padding: 56px 29px;
+    margin: 0 20px;
+    margin-bottom: 130px;
+  }
   .app-container {
     .app-wrapper {
       .contact-flex {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @include mobile {
+          flex-direction: column;
+          align-items: unset;
+        }
         &__head {
           font-family: Gilroy;
           font-weight: bold;
@@ -302,6 +413,16 @@
           line-height: 48px;
           color: #ffffff;
           max-width: 592px;
+          margin-left: auto;
+          margin-right: auto;
+          @include mobile {
+            font-size: 24px;
+            line-height: 32px;
+            margin-bottom: 32px;
+            max-width: 286px;
+            margin-left: auto;
+            margin-right: auto;
+          }
         }
 
         .contact-us {
@@ -311,6 +432,9 @@
           border-radius: 100px;
           background: linear-gradient(0deg, #f6f7f9 0%, #ffffff 100%);
           border: 1px solid #d8dce6;
+          @include mobile {
+            width: fit-content;
+          }
           a {
             font-family: Gilroy;
             font-weight: 600;
@@ -329,27 +453,40 @@ footer {
   .app-container {
     @include container;
     border-top: 1px solid rgba(105, 122, 162, 0.1);
+    @include mobile {
+      margin: 0 20px;
+    }
     .app-wrapper {
       padding-top: 32px;
       padding-bottom: 56px;
+      @include mobile {
+        padding-bottom: 32px;
+      }
       .footer-flex {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @include mobile {
+          flex-direction: column;
+          align-items: unset;
+        }
         &__items {
           &-p {
             font-family: Inter;
             font-size: 14px;
             line-height: 24px;
             color: rgba(45, 45, 85, 0.8);
+            @include mobile {
+              margin-bottom: 34px;
+            }
           }
           ul {
             display: flex;
             li {
-                margin-right: 40px;
-                &:last-child{
-                    margin-right: 0;
-                }
+              margin-right: 40px;
+              &:last-child {
+                margin-right: 0;
+              }
               a {
                 font-family: Inter;
                 font-size: 14px;
